@@ -13,6 +13,9 @@ const Todo = () => {
   let updateTodoValue = (event) => {
     setNewTodo(event.target.value);
   };
+  let deleteTodo = (id) => {
+        setTodos((prevTodos) => todos.filter((prevTodos) => prevTodos.id != id));
+    };
   return (
     <div className='flex flex-col justify-center items-center mt-32'>
       <input placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
@@ -28,8 +31,8 @@ const Todo = () => {
               <span style={todo.isDone ? { textDecorationLine: "line-through" } : {}}>
                 {""}{todo.task}</span>
               &nbsp; &nbsp; &nbsp;  &nbsp;
-              {/* <button onClick={() => deleteTodo(todo.id)}>Delete</button> */}
-              {/* &nbsp; &nbsp; &nbsp;  &nbsp; */}
+              <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+              &nbsp; &nbsp; &nbsp;  &nbsp;
               {/* <button onClick={markAsDone}>Mark As Done</button> */}
             </li>
           ))
