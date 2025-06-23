@@ -14,8 +14,25 @@ const Todo = () => {
     setNewTodo(event.target.value);
   };
   let deleteTodo = (id) => {
-        setTodos((prevTodos) => todos.filter((prevTodos) => prevTodos.id != id));
-    };
+    setTodos((prevTodos) => todos.filter((prevTodos) => prevTodos.id != id));
+  };
+  let markAsDone = (id) => {
+        setTodos((prevTodos) => 
+        prevTodos.map((todo) => {
+            if(todo.id==id)
+            {
+                return {
+                    ...todo , isDone: true,
+                };
+            }
+            else
+            {
+                return todo;
+            }
+        })
+      );
+    }
+    
   return (
     <div className='flex flex-col justify-center items-center mt-32'>
       <input placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
@@ -33,7 +50,7 @@ const Todo = () => {
               &nbsp; &nbsp; &nbsp;  &nbsp;
               <button onClick={() => deleteTodo(todo.id)}>Delete</button>
               &nbsp; &nbsp; &nbsp;  &nbsp;
-              {/* <button onClick={markAsDone}>Mark As Done</button> */}
+              <button onClick={markAsDone}>Mark As Done</button>
             </li>
           ))
         }
