@@ -16,23 +16,30 @@ const Todo = () => {
   let deleteTodo = (id) => {
     setTodos((prevTodos) => todos.filter((prevTodos) => prevTodos.id != id));
   };
+  let upperCaseAll = () => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        return {
+          ...todo, task: todo.task.toUpperCase(),
+        };
+      })
+    );
+  };
   let markAsDone = (id) => {
-        setTodos((prevTodos) => 
-        prevTodos.map((todo) => {
-            if(todo.id==id)
-            {
-                return {
-                    ...todo , isDone: true,
-                };
-            }
-            else
-            {
-                return todo;
-            }
-        })
-      );
-    }
-    
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id == id) {
+          return {
+            ...todo, isDone: true,
+          };
+        }
+        else {
+          return todo;
+        }
+      })
+    );
+  }
+
   return (
     <div className='flex flex-col justify-center items-center mt-32'>
       <input placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
@@ -50,11 +57,14 @@ const Todo = () => {
               &nbsp; &nbsp; &nbsp;  &nbsp;
               <button onClick={() => deleteTodo(todo.id)}>Delete</button>
               &nbsp; &nbsp; &nbsp;  &nbsp;
-              <button onClick={markAsDone}>Mark As Done</button>
+              <button onClick={() => markAsDone(todo.id)}>Mark As Done</button>
             </li>
           ))
         }
       </ul>
+      <br />
+      <br />
+      <button onClick={upperCaseAll}>UpperCase All</button>
     </div>
   )
 }
