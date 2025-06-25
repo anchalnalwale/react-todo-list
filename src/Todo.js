@@ -41,7 +41,7 @@ const Todo = () => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center mt-32'>
+    <div className='flex flex-col justify-center items-center m-10 gap-6'>
       <input placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
       <button onClick={addNewTask}>Add Task</button>
       <br />
