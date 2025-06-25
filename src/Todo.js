@@ -41,12 +41,10 @@ const Todo = () => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center m-10 gap-6'>
-      <input placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
-      <button onClick={addNewTask}>Add Task</button>
-      <br />
-      <br />
-      <br />
+    <div className='flex flex-col justify-center items-center m-10 gap-14'>
+      <h1 className='text-3xl font-bold text-white'>Task Manager</h1>
+      <input className='w-64 p-2 h-10 rounded-lg' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
+      <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={addNewTask}>Add Task</button>
       <h4>To Do List</h4>
       <ul>
         {
@@ -54,17 +52,13 @@ const Todo = () => {
             <li key={todo.id}>
               <span style={todo.isDone ? { textDecorationLine: "line-through" } : {}}>
                 {""}{todo.task}</span>
-              &nbsp; &nbsp; &nbsp;  &nbsp;
-              <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-              &nbsp; &nbsp; &nbsp;  &nbsp;
-              <button onClick={() => markAsDone(todo.id)}>Mark As Done</button>
+              <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={() => deleteTodo(todo.id)}>Delete</button>
+              <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={() => markAsDone(todo.id)}>Mark As Done</button>
             </li>
           ))
         }
       </ul>
-      <br />
-      <br />
-      <button onClick={upperCaseAll}>UpperCase All</button>
+      <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={upperCaseAll}>UpperCase All</button>
     </div>
   )
 }
