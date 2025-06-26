@@ -43,8 +43,8 @@ const Todo = () => {
   return (
     <div className='flex flex-col justify-center items-center m-10 gap-10 h-full w-full'>
       <h1 className='text-5xl font-extrabold text-white'>Task Manager</h1>
-      <input className='w-64 p-2 h-10 rounded-lg border-2 shadow-lg' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
-      <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={addNewTask}>Add Task</button>
+      <input className='w-64 p-2 h-10 rounded-lg border-2' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
+      <button className='bg-emerald-500 text-white h-10 w-24 text-lg rounded-lg hover:bg-emerald-300' onClick={addNewTask}>Add Task</button>
       <h4 className='text-2xl font-bold text-white'>To Do List</h4>
       <div className='flex flex-col w-full justify-center items-center'>
         <ul className='m-0 text-l text-white'>
@@ -53,14 +53,14 @@ const Todo = () => {
               <li key={todo.id}>
                 <span style={todo.isDone ? { textDecorationLine: "line-through" } : {}}>
                   {""}{todo.task}</span>
-                <button className='bg-emerald-500 text-white h-10 w-24 rounded-lg m-6' onClick={() => deleteTodo(todo.id)}>Delete</button>
-                <button className='bg-emerald-500 text-white h-10 w-28 rounded-lg m-6' onClick={() => markAsDone(todo.id)}>Mark As Done</button>
+                <button className='bg-emerald-500 text-white h-10 w-24 rounded-lg m-6 text-lg hover:bg-emerald-300' onClick={() => deleteTodo(todo.id)}>Delete</button>
+                <button className='bg-emerald-500 text-white h-10 w-32 rounded-lg m-6 text-lg hover:bg-emerald-300' onClick={() => markAsDone(todo.id)}>Mark As Done</button>
               </li>
             ))
           }
         </ul>
       </div>
-      <button className='bg-emerald-500 text-white h-10 w-28 rounded-lg' onClick={upperCaseAll}>UpperCase All</button>
+      <button className='bg-emerald-500 text-white h-10 w-32 rounded-lg text-lg hover:bg-emerald-300' onClick={upperCaseAll}>UpperCase All</button>
     </div>
   )
 }
