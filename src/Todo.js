@@ -41,24 +41,26 @@ const Todo = () => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center m-10 gap-14'>
-      <h1 className='text-3xl font-bold text-white'>Task Manager</h1>
-      <input className='w-64 p-2 h-10 rounded-lg' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
+    <div className='flex flex-col justify-center items-center m-10 gap-10 h-full w-full'>
+      <h1 className='text-5xl font-extrabold text-white'>Task Manager</h1>
+      <input className='w-64 p-2 h-10 rounded-lg border-2 shadow-lg' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
       <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={addNewTask}>Add Task</button>
-      <h4>To Do List</h4>
-      <ul>
-        {
-          todos.map((todo) => (
-            <li key={todo.id}>
-              <span style={todo.isDone ? { textDecorationLine: "line-through" } : {}}>
-                {""}{todo.task}</span>
-              <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={() => deleteTodo(todo.id)}>Delete</button>
-              <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={() => markAsDone(todo.id)}>Mark As Done</button>
-            </li>
-          ))
-        }
-      </ul>
-      <button className='bg-emerald-500 text-white h-10 w-20 rounded-lg' onClick={upperCaseAll}>UpperCase All</button>
+      <h4 className='text-2xl font-bold text-white'>To Do List</h4>
+      <div className='flex flex-col w-full justify-center items-center'>
+        <ul className='m-0 text-l text-white'>
+          {
+            todos.map((todo) => (
+              <li key={todo.id}>
+                <span style={todo.isDone ? { textDecorationLine: "line-through" } : {}}>
+                  {""}{todo.task}</span>
+                <button className='bg-emerald-500 text-white h-10 w-24 rounded-lg m-6' onClick={() => deleteTodo(todo.id)}>Delete</button>
+                <button className='bg-emerald-500 text-white h-10 w-28 rounded-lg m-6' onClick={() => markAsDone(todo.id)}>Mark As Done</button>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <button className='bg-emerald-500 text-white h-10 w-28 rounded-lg' onClick={upperCaseAll}>UpperCase All</button>
     </div>
   )
 }

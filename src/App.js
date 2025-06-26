@@ -3,7 +3,8 @@ import Todo from './Todo'
 
 const App = () => {
    useEffect(() => {
-    document.body.style.backgroundColor = 'powderblue'; 
+    document.body.style.backgroundColor = 'black';
+    document.body.style.overflowX = "hidden"; 
   }, []);
   return (
     <>
