@@ -43,10 +43,10 @@ const Todo = () => {
   return (
     <div className='flex flex-col justify-center items-center m-10 gap-10 h-full w-full'>
       <h1 className='text-5xl font-extrabold text-white'>Task Manager</h1>
-      <input className='w-64 p-2 h-10 rounded-lg border-2' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
+      <input className='w-64 p-2 h-10 rounded-lg' placeholder="Add a task" type="text" value={newTodo} onChange={updateTodoValue} />
       <button className='bg-emerald-500 text-white h-10 w-24 text-lg rounded-lg hover:bg-emerald-300' onClick={addNewTask}>Add Task</button>
-      <h4 className='text-2xl font-bold text-white'>To Do List</h4>
-      <div className='flex flex-col w-full justify-center items-center'>
+      <div className='flex flex-col w-[700px] justify-center items-center border-2 border-white rounded-lg shadow-lg shadow-yellow-200'>
+        <h4 className='text-2xl font-bold text-white mt-4 mb-4'>To Do List</h4>
         <ul className='m-0 text-l text-white'>
           {
             todos.map((todo) => (
